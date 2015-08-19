@@ -1,0 +1,42 @@
+<h1>Exercise Four</h1>
+<h3>Hello, Backbone.js...Views, Views EVERYWHERE!</h3>
+
+<section id='container'></section>
+<section class='snake'></section>
+
+<script type="text/javascript">
+
+  var app = app || {}
+  app.listItemView = Backbone.View.extend({
+    initialize: function() {
+      console.log('if youre reading this, I am working.');
+      this.render();
+      console.log('content should be rendered in');
+      console.log(this.$el);
+    },
+    render: function() {
+      console.log('if you are reading this again, I am working again')
+      this.$el.append('<img src=http://cdn4.teen.com/wp-content/uploads/2014/10/jungle-book-kaa-hypnotized.gif>');
+    }
+  });
+
+var listItem = new app.listItemView({
+  el: $("#container")
+});
+var listItem = new app.listItemView({
+  el: $("#container")
+});
+var listItemTwo = new app.listItemView ({
+  el: $('.snake')
+  });
+  var listItemTwo = new app.listItemView ({
+    el: $('.snake')
+    });
+    var listItemTwo = new app.listItemView ({
+      el: $('.snake')
+      });
+      var listItemTwo = new app.listItemView ({
+        el: $('.snake')
+        });
+
+</script>

@@ -1,0 +1,67 @@
+<h1>Here is number 6</h1>
+<h3>Lets get started</h3>
+
+<section id = 'one'>
+
+</section>
+
+<script type="text/javascript">
+
+
+var movieApp = movieApp || {}
+
+movieApp.movieModel = Backbone.Model.extend({
+  url: 'http://www.omdbapi.com/?t=honey+i+shrunk+the+kids&y=&plot=short&r=json'
+  initialize: function() {
+    console.log('the model is ready');
+    //when the model data changes lets fire an event
+    this.on('change', function(event){
+      //the change event implements a design pattern
+      //called Object.observe()
+      //logging the model's attributes!
+      console.log(this.attributes);
+      //alert the user via CLI
+      console.log('dude......the model.....whoa...it changed!');
+    });
+  }
+});
+var movie = new MovieApp.movieModel();
+movie.fetch();
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- movieApp.movieModel = [
+
+
+
+];
+  app.todoItemView = Backbone.View.extend({
+    initialize: function(){
+
+    }
+    render: function(dataObject) {
+      this.template = _.template($())
+    }
+  });
+</script>
+
+
+<script type="text/template" id='list-template'>
+  <li>
+
+  This dude is wearing <%%= socks %> socks with some bogus <%%= shoes %> sneakers.
+
+
+  </li>
+
+</script> -->

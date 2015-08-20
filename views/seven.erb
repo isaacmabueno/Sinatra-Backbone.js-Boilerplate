@@ -1,0 +1,22 @@
+<h1>Exercise Numba 7</h1>
+<h3>Honey I Shrunk The Kids</h3>
+
+<script type="text/javascript">
+
+var movieAppTwo = movieAppTwo || {}
+
+movieAppTwo.movieModel = Backbone.Model.extend({
+  url:'http://www.omdbapi.com/?t=uncle+buck&y=&plot=short&r=json'
+  initialize: function ({
+    console.log('the model is ready');
+    this.on('change', function(event){
+      //the change event implements a design pattern called Object.observe-- logging the models attributes
+      console.log(this.attributes);
+      console.log('dude......the model changed....wtf????')
+    })
+  })
+})
+var movie = new movieAppTwo.movieModel
+movie.fetch();
+
+</script>

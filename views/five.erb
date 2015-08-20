@@ -1,0 +1,51 @@
+<h1> Exercise 5</h1>
+
+<h3>Re-using Views</h3>
+
+<section id='list'>
+
+</section>
+
+
+<script type="text/javascript">
+  var app = app || {}
+  app.data = [
+    {id: 1, thing: "I need to do laundry", date: "08/19/2015" },
+    {id: 2, thing: "I need to get some sleep", date: "always"},
+    {id: 3, thing: "I want some wanter", date: "now"},
+    {id: 4, thing: "I need to take a leak/dump", date: "two hours ago"},
+    {id: 5, thing: "I need to go grociery shopping", date: "08/19/2015"}
+  ];
+  app.todoItemView = Backbone.View.extend({
+  initialize: function() {
+      // this.render();
+  },
+  render: function(dataObject) {
+    this.template = _.template($('#list-template').html());
+    var compiledTemplate=this.template(dataObject);
+    this.$el.append(compiledTemplate);
+  }
+});
+//dat page is ready
+$(document).ready(function(){
+  var todoItem = new app.todoItemView({
+    el: $('#list')
+  })
+  //loop through my array....
+  for (var x in app.data){
+  todoItem.render(app.data[x]);
+  }
+});
+</script>
+
+<script type="text/template" id='list-template'>
+  <li>
+
+  <%%= id %>:
+  <em><%%= thing %></em>;
+  <strong>Due By:</strong>
+  <%%= date %>
+
+  </li>
+
+</script>
